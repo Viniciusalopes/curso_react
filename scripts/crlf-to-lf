@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Fonte: https://gitlab.com/vovolinux/ubuntu/tips-and-tricks
+
+# Diretório do projeto
+PROJECT_PATH="$1"
+cd $PROJECT_PATH
+
+# Array com os diretórios que você quer ignorar
+EXCLUDE_DIRS=(node_modules .git .idea .vscode target)
+
+# Monta a expressão de prune dinamicamente
+PRUNE_EXPR=""
+for DIR in "${EXCLUDE_DIRS[@]}"; do
+  PRUNE_EXPR="$PRUNE_EXPR -name $DIR -o"
+done
+# Remove o último -o (OR) extra
+PRUNE_EXPR="${PRUNE_EXPR% -o}"
+
+# Executa o find usando eval para interpretar corretamente a expressão
+eval "find . -type d \( $PRUNE_EXPR \) -prune -o -type f -exec dos2unix {} +"
+

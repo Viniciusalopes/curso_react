@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# 1. Adiciona ssh-agent
+eval $(ssh-agent -s)
+
+# 2. Adiciona chave ssh
+ssh-add ~/.ssh/id_suporte_viniciusalopes_github
+
+# 3. Atualiza o repositório remoto
+git push
+
+

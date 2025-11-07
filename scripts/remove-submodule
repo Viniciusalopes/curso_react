@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# 1. Remover diretório de metadados do submódulo (se ainda existir)
+rm -rf .git/modules/$1
+
+# 3. Adicionar o diretório novamente como parte normal do repositório
+git add $1
+git commit -m "feat(curso-react): Converts $1 from a submodule to a normal directory."
+
+# 4. Atualiza branch dev remota
+cd -
+./update-remote-dev
+
+

@@ -1,4 +1,5 @@
 import './App.css';
+import AnotherComponent from './components/AnotherComponent';
 import FirstComponent from './components/FirstComponent';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <h2>Opa React</h2>
       <FirstComponent />
+      <AnotherComponent />
     </div>
   );
 }

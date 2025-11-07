@@ -1,3 +1,5 @@
+import AnotherComponent from './AnotherComponent';
+
 function FirstComponent() {
   // Algum comentário
   const name = "Vinicius";
@@ -7,6 +9,7 @@ function FirstComponent() {
       <p>Primeiro Componente</p>
       {2 + 2 /* Template expressions */}
       <p>Nome: {name}</p> { /* Interpolação de valor */ }
+      <AnotherComponent />
     </div>
   );
 }
